@@ -29,19 +29,19 @@ public class ResultServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer numberOne = 0;
-        Integer numberTwo = 0;
+        Double numberOne = 0.0;
+        Double numberTwo = 0.0;
 
         try {
-            numberOne = Integer.valueOf(req.getParameter("numberOne"));
-            numberTwo = Integer.valueOf(req.getParameter("numberTwo"));
+            numberOne = Double.valueOf(req.getParameter("numberOne"));
+            numberTwo = Double.valueOf(req.getParameter("numberTwo"));
         } catch (NumberFormatException e) {
             e.printStackTrace();
             req.setAttribute("error", "1");
             req.getRequestDispatcher("/").forward(req, resp);
         }
 
-        Integer result = 0;
+        Double result = 0.0;
         String sign = req.getParameter("action");
         PrintWriter pw = resp.getWriter();
         switch (sign) {

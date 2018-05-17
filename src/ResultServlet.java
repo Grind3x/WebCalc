@@ -36,7 +36,6 @@ public class ResultServlet extends HttpServlet {
             numberOne = Double.valueOf(req.getParameter("numberOne"));
             numberTwo = Double.valueOf(req.getParameter("numberTwo"));
         } catch (NumberFormatException e) {
-            e.printStackTrace();
             req.setAttribute("error", "1");
             req.getRequestDispatcher("/").forward(req, resp);
         }
